@@ -1,0 +1,164 @@
+<html lang="en">
+
+<head>
+    <style>
+        .a {
+            position: absolute;
+            top: 10px;
+            left: 40px;
+        }
+
+        .b {
+            position: absolute;
+            top: 100px;
+            left: 40px;
+
+
+        }
+
+        .C {
+            position: absolute;
+            top: 250px;
+            left: 40px;
+
+        }
+
+        .d {
+            position: absolute;
+            top: 350px;
+            left: 250px;
+        }
+
+        .e {
+            position: relative;
+            left: 25%;
+            border: 2px solid rgb(14, 1, 1);
+            height: 650px;
+            width: 700px;
+            background-image: linear-gradient(to right, rgb(190, 196, 190), rgb(8, 247, 24));
+            border-radius: 50px;
+        }
+
+        .f {
+            position: absolute;
+            top: 440px;
+            left: 200px;
+        }
+
+        .g {
+            position: absolute;
+            top: 540px;
+            left: 200px;
+        }
+
+        .bg {
+            background-image: url(../OIP\ \(1\).jfif);
+
+        }
+
+        .box {
+            height: 40px;
+            text-align: center;
+            font-size: 100%;
+
+        }
+    </style>
+
+    <title>bmi</title>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="e">
+            <div class="a">
+                <h1> BODY MASS INDEX(BMI) CALCULATER</h1>
+            </div>
+            <div class="b">
+                <h2>ENTER YOUR WEIGHT : <input class="box" type="number" id="weight" ></h2>
+                <h2>( in kilogram)</h2>
+            </div>
+            <div class="C">
+                <h2>ENTER YOUR HEIGHT : <input class="box" type="number" id="height" ></h2>
+                <h2>( in meter)</h2>
+            </div>
+            <div class="d"> <button onclick="calculate()">
+                    <h1>calculate</h1>
+                </button></div>
+            <b>
+                <h2 class="f" id="res"> </h2>
+                <h2 class="g" id="show"> </h2>
+            </b>
+
+
+            <script>
+
+                function calculate() {
+                    var wei = document.getElementById("weight");
+                    var hei = document.getElementById("height");
+
+
+                    var w = wei.value;
+                    var h = hei.value;
+                    var bmi = w / (h * h);
+                    
+
+                    if (bmi < 19  ) {
+                        var ans = 19 * (h * h);
+                        var ans1 = parseInt((ans - w)+1);
+                        var a = "LEAN";
+                        ans1 = ans1 + "kg";
+                    
+                        var bbb = "INCREAS WEIGHT " + ans1;
+
+                        document.getElementById("show").style.color = "red";
+                    }
+                    else if (19 < bmi && bmi < 26) {
+                        var b = "NORMAL";
+                        var ccc = "YOU ARE FIT";
+                        document.getElementById("show").style.color = "green";
+                    }
+                    else if (bmi > 26 ) {
+                        var ans = 26 * (h * h);
+                        var ans1 = parseInt((w - ans+1));
+                        var c = "FAT";
+                        ans1 = ans1 + "kg";
+                        var aaa = "DECREASE WEIGHT " + ans1;
+                        document.getElementById("show").style.color = "red";
+                    }
+
+
+                    if (w > 200 || h > 3.9 ) {
+                        alert("The measurement are not calculate");
+                    }
+                   
+                   else if (h > 0 && w > 0) {
+                        document.getElementById("res").innerHTML = a || b || c;
+
+
+                        document.getElementById("show").innerHTML = aaa || bbb || ccc;
+
+                    }
+                    else if (h > 0) {
+                        alert("Enter the weight");
+                    }
+                    else if (w > 0) {
+                        alert("Enter the height");
+                    }
+                    else {
+                        alert("Enter the values");
+                    }
+
+                }
+
+
+
+
+            </script>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
